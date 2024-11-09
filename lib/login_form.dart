@@ -1,4 +1,3 @@
-// lib/login_form.dart
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'no_roteiro_page.dart'; // Importe a nova página
@@ -31,26 +30,33 @@ class _LoginFormState extends State<LoginForm> {
       );
       // Verifique o código de status da resposta do servidor
       if (response.statusCode == 200) {
-        // Verifique a resposta do servidor
-        print('Resposta: ${response.body}');
-        // Verifique a resposta do servidor para determinar se o login foi bem-sucedido
-        if (response.body == 'Login bem-sucedido') {
+
+         print('Resposta: ${response.body}');
+
+        // Verifique se a resposta possui exatamente quatro partes separadas por "^"
+        List<String> respostaPartes = response.body.split('^');
+        if (respostaPartes.length == 4) {
+          // Use a primeira parte como 'cliente'
+          String clienteRetornado = respostaPartes[0];
+
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => HomePage()),
-          );
-        } else if (response.body == 'leste2_n^Herminio^500000^Não existe roteiro definido para Herminio') {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => NoRoteiroPage()),
+            MaterialPageRoute(
+              builder: (context) => NoRoteiroPage(
+                cliente: clienteRetornado, // Passando o valor de 'cliente'
+              ),
+            ),
           );
         } else {
-          _showErrorDialog('Falha - Usuário não cadastrado no SGM ou senha errada!');
+          _showErrorDialog(
+              'Falha - Usuário não cadastrado no SGM ou senha errada!');
         }
+
       } else {
         print('Falha no login');
         print('Resposta: ${response.body}');
-        _showErrorDialog('Falha - Usuário não cadastrado no SGM ou senha errada!');
+        _showErrorDialog(
+            'Falha - Usuário não cadastrado no SGM ou senha errada!');
       }
     } catch (e) {
       print('Erro: $e');
@@ -82,7 +88,7 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Form'),
+        title: const Text('Login - SGM QRCODE SCANNER'),
       ),
       body: Center(
         child: Padding(
