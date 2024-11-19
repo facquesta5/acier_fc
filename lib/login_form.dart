@@ -88,7 +88,9 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login - SGM QRCODE SCANNER'),
+        title: const Text('SGMhistórico'),
+        backgroundColor: const Color.fromARGB(255, 19, 84, 182), // Cor de fundo do AppBar
+        foregroundColor: Colors.white, // Cor dos ícones e textos
       ),
       body: Center(
         child: Padding(
@@ -138,7 +140,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Home Page'),
+        title: const Text('SGMhistórico'),
+        backgroundColor: const Color.fromARGB(255, 19, 84, 182), // Cor de fundo do AppBar
+        foregroundColor: Colors.white, // Cor dos ícones e textos
       ),
       body: const Center(
         child: Text('Bem-vindo à Home Page!'),

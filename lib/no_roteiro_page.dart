@@ -112,7 +112,9 @@ class _NoRoteiroPageState extends State<NoRoteiroPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Escanear'),
+        title: const Text('SGMhistórico'),
+        backgroundColor: const Color.fromARGB(255, 19, 84, 182), // Cor de fundo do AppBar
+        foregroundColor: Colors.white, // Cor dos ícones e textos
         automaticallyImplyLeading: false, // Remove o botão de voltar padrão
         leading: IconButton(
           icon: const Icon(Icons.arrow_back), // Ícone de seta para o lado esquerdo
@@ -132,20 +134,24 @@ class _NoRoteiroPageState extends State<NoRoteiroPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               if (_scanResult.isNotEmpty) ...[
+                 const SizedBox(height: 15),
                 Text(
                   'Equipamento: $tipoEquipamento',
                   style: const TextStyle(fontSize: 20),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 4),
                 Text(
                   'Código do Equipamento: $codigoEquipamento',
-                  style: const TextStyle(fontSize: 18),
+                  style: const TextStyle(fontSize: 15),
                 ),                
-                const SizedBox(height: 10),
+                const SizedBox(height: 8),
                 ...ordens.map((ordem) {
                   return Card(
                     margin:
                         const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                        color: ordem['Status'] == 'concluida'
+                        ? Colors.lightGreen[200] // Cor de fundo verde clara
+                        : Colors.white, // Cor padrão
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: Column(
