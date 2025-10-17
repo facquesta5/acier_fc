@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -26,10 +27,22 @@ class _EquipamentoPageState extends State<EquipamentoPage> {
   bool ventClima = false;
   bool func = false;
 
+   Timer? _timer;
+
   @override
   void initState() {
     super.initState();
     carregarDados();
+
+    _timer = Timer.periodic(const Duration(seconds: 5), (timer) {
+      carregarDados();
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel(); 
+    super.dispose();
   }
 
   Future<void> carregarDados() async {
@@ -73,7 +86,6 @@ class _EquipamentoPageState extends State<EquipamentoPage> {
     }
   }
 
-  // 🔹 Envia atualização para o servidor reativamente
   Future<void> enviarAtualizacao(String parametro, dynamic valor) async {
     final url = Uri.parse(
         'https://aciersgm.com.br/fc4.php?modulo=${widget.modulo}&equip=${widget.equip}&$parametro=$valor');
