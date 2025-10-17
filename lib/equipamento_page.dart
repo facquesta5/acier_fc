@@ -218,7 +218,7 @@ class _EquipamentoPageState extends State<EquipamentoPage> {
                         divisions: 28 - 14,
                         label: '${tempSetup.toStringAsFixed(0)}°C',
                         activeColor: Colors.blueAccent,
-                        inactiveColor: Colors.blueAccent.withOpacity(0.3),
+                        inactiveColor: Colors.blueAccent.withOpacity(0.4),
                         onChanged: onOff
                             ? (valor) {
                                 setState(() {
