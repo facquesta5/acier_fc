@@ -1,4 +1,4 @@
-name: sgm_qrcode_scanner
+name: acier_fc
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
@@ -10,7 +10,9 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^0.13.3
-  flutter_barcode_scanner: ^2.0.0
+  #flutter_barcode_scanner: ^2.0.0
+  mobile_scanner: ^7.1.2
+  font_awesome_flutter: ^10.9.0
 # Outros pacotes
 cupertino_icons: ^1.0.2
 

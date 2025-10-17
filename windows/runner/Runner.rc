@@ -90,12 +90,12 @@ BEGIN
         BLOCK "040904e4"
         BEGIN
             VALUE "CompanyName", "com.example" "\0"
-            VALUE "FileDescription", "flutter_qrcode" "\0"
+            VALUE "FileDescription", "acier_fc" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "flutter_qrcode" "\0"
+            VALUE "InternalName", "acier_fc" "\0"
             VALUE "LegalCopyright", "Copyright (C) 2024 com.example. All rights reserved." "\0"
-            VALUE "OriginalFilename", "flutter_qrcode.exe" "\0"
-            VALUE "ProductName", "flutter_qrcode" "\0"
+            VALUE "OriginalFilename", "acier_fc.exe" "\0"
+            VALUE "ProductName", "acier_fc" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END
