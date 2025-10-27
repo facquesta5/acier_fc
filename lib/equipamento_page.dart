@@ -67,9 +67,9 @@ class _EquipamentoPageState extends State<EquipamentoPage> {
         setState(() {
           tempSetup = double.tryParse(dados['TempSetup'] ?? '0') ?? 0;
           tempAmb = double.tryParse(dados['TempAmb'] ?? '0') ?? 0;
-          onOff = (dados['onoff'] == '1');
-          ventClima = (dados['vent_clima'] == '1');
-          func = (dados['func'] == '1');
+          onOff = (dados['onoff_cmd'] == '1');
+          ventClima = (dados['vc_cmd'] == '1');
+          func = (dados['onoff_status'] == '1');
           carregando = false;
         });
       } else {
@@ -271,7 +271,7 @@ class _EquipamentoPageState extends State<EquipamentoPage> {
                                   onOff = !onOff;
                                 });
                                 enviarAtualizacao(
-                                    'onoff', onOff ? '1' : '0');
+                                    'onoff_cmd', onOff ? '1' : '0');
                               },
                             ),
                           ),
@@ -292,7 +292,7 @@ class _EquipamentoPageState extends State<EquipamentoPage> {
                                     ventClima = !ventClima;
                                   });
                                   enviarAtualizacao(
-                                      'vent_clima', ventClima ? '1' : '0');
+                                      'vc_cmd', ventClima ? '1' : '0');
                                 }
                               },
                             ),
